@@ -1,7 +1,7 @@
 #slider {
   position: relative;
   text-align: center;
-  top: 10px;
+  padding: 2vh;
 }
 
 #slider {
@@ -45,12 +45,38 @@ article {
 article .text {
   width: 100%;
   font-size: 3rem;
+  text-align: left;
 }
 
-#container {
+#switch1:checked~.container #slides-text .caption {
+  margin-left: 0;
+}
+
+#switch2:checked~.container #slides-text .caption {
+  margin-left: -100%;
+}
+
+#switch3:checked~.container #slides-text .caption {
+  margin-left: -200%;
+}
+
+#switch4:checked~.container #slides-text .caption {
+  margin-left: -300%;
+}
+
+#switch5:checked~.container #slides-text .caption {
+  margin-left: -400%;
+}
+
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 3rem;
+}
+
+#slides-text .caption {
+  transition: all 800ms ease;
 }
 
 #desktop:checked~#slider {
@@ -64,7 +90,7 @@ label {
 .all {
   background-color: #25282a;
   color: white;
-  height: 100rem;
+  height: 200rem;
 }
 
 .all input {
@@ -92,32 +118,42 @@ label {
 }
 
 #active label {
-  border-radius: 4rem;
-  display: inline-block;
   width: 6rem;
   height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  border-radius: 2rem;
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
   background: #bbb;
+
 }
 
 #active {
-  margin: 2% 0 0;
+  /* margin: 2% 0 0; */
+  display: flex;
   text-align: center;
 }
 
-#active label:hover {
+#active .label:hover {
   background: #76c8ff;
   border-color: #777 !important;
 }
 
-#active label:active {
+#active .label:active {
   background: #666;
 }
 
-#switch1:checked~#active label:nth-child(1),
-#switch2:checked~#active label:nth-child(2),
-#switch3:checked~#active label:nth-child(3),
-#switch4:checked~#active label:nth-child(4),
-#switch5:checked~#active label:nth-child(5) {
+#switch1:checked~.container #active label:nth-child(1) .label,
+#switch2:checked~.container #active label:nth-child(2) .label,
+#switch3:checked~.container #active label:nth-child(3) .label,
+#switch4:checked~.container #active label:nth-child(4) .label,
+#switch5:checked~.container #active label:nth-child(5) .label {
   background: #18a3dd;
   border-color: #18a3dd !important;
 }
